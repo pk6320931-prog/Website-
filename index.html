@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Piyush Profile</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: white;
+  color: black;
+  padding: 30px;
+  border-radius: 15px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.card img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.typing {
+  font-weight: bold;
+  color: #ff4b2b;
+  min-height: 24px;
+}
+
+button {
+  margin: 8px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.insta { background: #E1306C; }
+.youtube { background: #FF0000; }
+
+button:hover {
+  opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <img src="file_000000004794720bae82fd593a6e39aa.png" 
+     width="100"
+  <h2>Piyush Kumar</h2>
+
+  <p>I am <span class="typing" id="typing"></span></p>
+
+<a href="https://www.instagram.com/piyush_kumar_85860?igsh=cW9kcDloc3UxYXZj" target="_blank">
+  <button class="insta">Instagram</button>
+</a>
+  <button class="youtube" onclick="alert('YouTube coming soon 🚀')">YouTube</button>
+</div>
+
+<script>
+const text = "Learning Cloud computing 🚀";
+let i = 0;
+
+function typeEffect() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 70);
+  }
+}
+
+typeEffect();
+</script>
+
+</body>
+</html>
