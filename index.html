@@ -2,86 +2,129 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Piyush Profile</title>
-
+<title>My Website</title>
 <style>
 body {
-  margin: 0;
+  background-color: #ffc0cb; /* Soft pink */
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .card {
-  background: white;
+  background-color: white;
   color: black;
-  padding: 30px;
+  padding: 30px 40px;
   border-radius: 15px;
-  width: 320px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 400px;
 }
 
 .card img {
-  width: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
 }
 
-.typing {
-  font-weight: bold;
-  color: #ff4b2b;
-  min-height: 24px;
+h2 {
+  margin: 0 0 10px 0;
 }
 
+/* Typing text */
+.typing-text {
+  font-family: monospace;
+  font-size: 18px;
+  margin: 10px 0 20px 0;
+  min-height: 50px;
+}
+
+/* Buttons */
 button {
+  padding: 10px 20px;
   margin: 8px;
-  padding: 10px 15px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  color: white;
+  font-size: 16px;
+  background-color: #f5f5dc; /* Cream color */
+  transition: 0.3s;
 }
 
-.insta { background: #E1306C; }
-.youtube { background: #FF0000; }
-
 button:hover {
-  opacity: 0.8;
+  transform: scale(1.05);
 }
 </style>
 </head>
 
 <body>
-
 <div class="card">
-  <img src="file_000000004794720bae82fd593a6e39aa.png" 
-     width="100"
+  <!-- Photo -->
+  <img src="file_000000004794720bae82fd593a6e39aa.png" alt="Profile Photo">
+  
+  <!-- Name -->
   <h2>Piyush Kumar</h2>
 
-  <p>I am <span class="typing" id="typing"></span></p>
+  <!-- Typing effect text -->
+  <div class="typing-text" id="typing"></div>
 
-<a href="https://www.instagram.com/piyush_kumar_85860?igsh=cW9kcDloc3UxYXZj" target="_blank">
-  <button class="insta">Instagram</button>
-</a>
-  <button class="youtube" onclick="alert('YouTube coming soon 🚀')">YouTube</button>
+  <!-- Buttons -->
+  <button onclick="alert('Hello Hacker 😎')">Click Me</button>
+
+  <!-- Music -->
+  <audio id="myMusic">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+  <button onclick="toggleMusic()">Play Music</button>
+
+  <!-- Social Buttons -->
+  <br>
+  <a href="https://www.instagram.com/piyush_kumar_85860?igsh=cW9kcDloc3UxYXZj" target="_blank">
+    <button>Instagram</button>
+  </a>
+
+  <a href="https://youtube.com/@mrredler8154?si=IW-ZaWCeuXRf0-Yq" target="_blank">
+    <button>YouTube</button>
+  </a>
 </div>
 
 <script>
-const text = "Learning Cloud computing 🚀";
-let i = 0;
+// Typing effect
+const text = "Welcome to my website\nI am learning cloud computing";
+let index = 0;
+const typingElement = document.getElementById("typing");
 
-function typeEffect() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeEffect, 70);
+function type() {
+  if(index < text.length){
+    typingElement.innerHTML += text.charAt(index) === "\n" ? "<br>" : text.charAt(index);
+    index++;
+    setTimeout(type, 80); // typing speed
   }
 }
 
-typeEffect();
+type();
+
+// Music toggle
+var audio = document.getElementById("myMusic");
+var isPlaying = false;
+
+function toggleMusic() {
+  if(isPlaying){
+    audio.pause();
+    isPlaying = false;
+    event.target.innerText = "Play Music";
+  } else {
+    audio.play();
+    isPlaying = true;
+    event.target.innerText = "Pause Music";
+  }
+}
 </script>
 
 </body>
